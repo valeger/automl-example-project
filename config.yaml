@@ -9,21 +9,21 @@ stages:
       image: valeger/automl-example-project:latest
       cpu_request: 0.2
       memory_request: 200
-      timeout: 60
+      timeout: 30
     - step_name: "model_2"
       path_to_executable: models/model_2.py
       dependency_path: requirements.txt
       image: valeger/automl-example-project:latest
       cpu_request: 0.2
       memory_request: 200
-      timeout: 50
+      timeout: 30
     - step_name: "model_3"
       path_to_executable: models/model_3.py
       dependency_path: requirements.txt
       image: valeger/automl-example-project:latest
       cpu_request: 0.2
       memory_request: 200
-      timeout: 65
+      timeout: 30
   comapre: 
     - step_name: "best_model"
       path_to_executable: compare.py
@@ -31,7 +31,7 @@ stages:
       image: valeger/automl-example-project:latest
       cpu_request: 0.2
       memory_request: 200
-      timeout: 65
+      timeout: 30
   serve: 
     - step_name: "serve_model"
       path_to_executable: serve.py
