@@ -1,0 +1,40 @@
+version: 1.0.0
+name: ts
+namesapce: automl
+stages: 
+  train: 
+    - step_name: "model_1"
+      path_to_executable: models/model_1.py
+      dependency_path: requirements.txt
+      cpu_request: 0.2
+      memory_request: 200
+      min_ready_seconds: 60
+    - step_name: "model_2"
+      path_to_executable: models/model_2.py
+      dependency_path: requirements.txt
+      cpu_request: 0.2
+      memory_request: 200
+      min_ready_seconds: 50
+    - step_name: "model_3"
+      path_to_executable: models/model_3.py
+      dependency_path: requirements.txt
+      cpu_request: 0.2
+      memory_request: 200
+      min_ready_seconds: 65
+  comapre: 
+    - step_name: "best_model"
+      path_to_executable: compare.py
+      dependency_path: requirements.txt
+      cpu_request: 0.2
+      memory_request: 200
+      min_ready_seconds: 65
+  serve: 
+    - step_name: "serve_model"
+      path_to_executable: serve.py
+      dependency_path: requirements.txt
+      cpu_request: 0.2
+      memory_request: 200
+      service:
+        max_startup_time_seconds: 10
+        port: 5000
+        ingress: True
