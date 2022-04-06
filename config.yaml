@@ -6,12 +6,14 @@ stages:
     - step_name: "model_1"
       path_to_executable: models/model_1.py
       dependency_path: requirements.txt
+      image: python:3.8.10-slim
       cpu_request: 0.2
       memory_request: 200
       min_ready_seconds: 60
     - step_name: "model_2"
       path_to_executable: models/model_2.py
       dependency_path: requirements.txt
+      image: python:3.8.10-slim
       cpu_request: 0.2
       memory_request: 200
       min_ready_seconds: 50
@@ -25,6 +27,7 @@ stages:
     - step_name: "best_model"
       path_to_executable: compare.py
       dependency_path: requirements.txt
+      image: python:3.8.10-slim
       cpu_request: 0.2
       memory_request: 200
       min_ready_seconds: 65
@@ -32,6 +35,7 @@ stages:
     - step_name: "serve_model"
       path_to_executable: serve.py
       dependency_path: requirements.txt
+      image: python:3.8.10-slim
       cpu_request: 0.2
       memory_request: 200
       service:
