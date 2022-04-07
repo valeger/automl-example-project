@@ -5,34 +5,38 @@ stages:
   train: 
     - step_name: "model_1"
       path_to_executable: models/model_1.py
-      dependency_path: models/requirements.txt
+      dependency_path: requirements.txt
+      image: valeger/automl-example-project:latest
       cpu_request: 0.2
       memory_request: 200
-      min_ready_seconds: 60
+      timeout: 30
     - step_name: "model_2"
       path_to_executable: models/model_2.py
-      dependency_path: models/requirements.txt
+      dependency_path: requirements.txt
+      image: valeger/automl-example-project:latest
       cpu_request: 0.2
       memory_request: 200
-      min_ready_seconds: 50
+      timeout: 30
     - step_name: "model_3"
       path_to_executable: models/model_3.py
-      dependency_path: models/requirements.txt
+      dependency_path: requirements.txt
+      image: valeger/automl-example-project:latest
       cpu_request: 0.2
       memory_request: 200
-      min_ready_seconds: 65
+      timeout: 30
   comapre: 
     - step_name: "best_model"
       path_to_executable: compare.py
-      dependency_path: models/requirements.txt
+      dependency_path: requirements.txt
+      image: valeger/automl-example-project:latest
       cpu_request: 0.2
       memory_request: 200
-      min_ready_seconds: 65
-  serve: 
+      timeout: 30
+  serve:
     - step_name: "serve_model"
       path_to_executable: serve.py
       dependency_path: requirements.txt
-      command: ["gunicorn", "-b", "0.0.0.0:5000", "manage:app"]
+      image: valeger/automl-example-project:latest
       cpu_request: 0.2
       memory_request: 200
       service:
