@@ -37,7 +37,7 @@ stages:
       path_to_executable: serve.py
       dependency_path: requirements.txt
       image: valeger/automl-example-project:latest
-      command: ["gunicorn", "-b", "0.0.0.0:5000", "manage:app"]
+      command: ["gunicorn", "-b", "0.0.0.0:5000", "serve:app"]
       timout: 40
       cpu_request: 0.2
       memory_request: 200
