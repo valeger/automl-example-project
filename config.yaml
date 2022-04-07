@@ -5,21 +5,21 @@ stages:
   train: 
     - step_name: "model_1"
       path_to_executable: models/model_1.py
-      dependency_path: requirements.txt
+      dependency_path: models/requirements.txt
       image: valeger/automl-example-project:latest
       cpu_request: 0.2
       memory_request: 200
       timeout: 30
     - step_name: "model_2"
       path_to_executable: models/model_2.py
-      dependency_path: requirements.txt
+      dependency_path: models/requirements.txt
       image: valeger/automl-example-project:latest
       cpu_request: 0.2
       memory_request: 200
       timeout: 30
     - step_name: "model_3"
       path_to_executable: models/model_3.py
-      dependency_path: requirements.txt
+      dependency_path: models/requirements.txt
       image: valeger/automl-example-project:latest
       cpu_request: 0.2
       memory_request: 200
@@ -27,7 +27,7 @@ stages:
   comapre: 
     - step_name: "best_model"
       path_to_executable: compare.py
-      dependency_path: requirements.txt
+      dependency_path: models/requirements.txt
       image: valeger/automl-example-project:latest
       cpu_request: 0.2
       memory_request: 200
