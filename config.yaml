@@ -5,26 +5,26 @@ stages:
   train: 
     - step_name: "model_1"
       path_to_executable: models/model_1.py
-      dependency_path: requirements.txt
+      dependency_path: models/requirements.txt
       cpu_request: 0.2
       memory_request: 200
       min_ready_seconds: 60
     - step_name: "model_2"
       path_to_executable: models/model_2.py
-      dependency_path: requirements.txt
+      dependency_path: models/requirements.txt
       cpu_request: 0.2
       memory_request: 200
       min_ready_seconds: 50
     - step_name: "model_3"
       path_to_executable: models/model_3.py
-      dependency_path: requirements.txt
+      dependency_path: models/requirements.txt
       cpu_request: 0.2
       memory_request: 200
       min_ready_seconds: 65
   comapre: 
     - step_name: "best_model"
       path_to_executable: compare.py
-      dependency_path: requirements.txt
+      dependency_path: models/requirements.txt
       cpu_request: 0.2
       memory_request: 200
       min_ready_seconds: 65
@@ -32,6 +32,7 @@ stages:
     - step_name: "serve_model"
       path_to_executable: serve.py
       dependency_path: requirements.txt
+      command: ["gunicorn", "-b", "0.0.0.0:5000", "manage:app"]
       cpu_request: 0.2
       memory_request: 200
       service:
