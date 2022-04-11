@@ -21,6 +21,12 @@ stages:
       cpu_request: 0.2
       memory_request: 200
       timeout: 30
+    - step_name: "model_4"
+      path_to_executable: models/model_4.py
+      dependency_path: models/requirements.txt
+      cpu_request: 0.2
+      memory_request: 200
+      timeout: 30
   comapre: 
     - step_name: "best_model"
       path_to_executable: compare.py
@@ -40,15 +46,4 @@ stages:
         max_startup_time_seconds: 10
         port: 5000
         ingress: True
-    - step_name: "serve_model_2"
-      path_to_executable: deploy/serve_2.py
-      dependency_path: deploy/requirements.txt
-      command: ["gunicorn", "-b", "0.0.0.0:3000", "deploy.serve_2:app"]
-      timout: 30
-      cpu_request: 0.2
-      memory_request: 200
-      service:
-        max_startup_time_seconds: 10
-        port: 3000
-        ingress: False
         
