@@ -21,7 +21,7 @@ stages:
       cpu_request: 0.2
       memory_request: 200
       timeout: 30
-  comapre: 
+  compare: 
     - step_name: "best_model"
       path_to_executable: compare.py
       dependency_path: models/requirements.txt
