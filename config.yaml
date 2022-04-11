@@ -30,8 +30,8 @@ stages:
       timeout: 30
   serve:
     - step_name: "serve_model_1"
-      path_to_executable: serve.py
-      dependency_path: requirements.txt
+      path_to_executable: deploy/serve_1.py
+      dependency_path: deploy/requirements.txt
       command: ["gunicorn", "-b", "0.0.0.0:5000", "serve:app"]
       timout: 30
       cpu_request: 0.2
@@ -41,14 +41,14 @@ stages:
         port: 5000
         ingress: True
     - step_name: "serve_model_2"
-      path_to_executable: serve.py
-      dependency_path: requirements.txt
+      path_to_executable: deploy/serve_2.py
+      dependency_path: deploy/requirements.txt
       command: ["gunicorn", "-b", "0.0.0.0:5000", "serve:app"]
       timout: 30
       cpu_request: 0.2
       memory_request: 200
       service:
         max_startup_time_seconds: 10
-        port: 5000
+        port: 3000
         ingress: False
         
