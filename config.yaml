@@ -33,7 +33,7 @@ stages:
       path_to_executable: deploy/serve_1.py
       dependency_path: deploy/requirements.txt
       command: ["gunicorn", "-b", "0.0.0.0:5000", "deploy.serve:app"]
-      timout: 20
+      timeout: 20
       cpu_request: 0.2
       memory_request: 200
       service:
@@ -44,7 +44,7 @@ stages:
       path_to_executable: deploy/serve_2.py
       dependency_path: deploy/requirements.txt
       command: ["gunicorn", "-b", "0.0.0.0:3000", "deploy.serve_2:app"]
-      timout: 20
+      timeout: 20
       cpu_request: 0.2
       memory_request: 200
       service:
