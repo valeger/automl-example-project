@@ -29,6 +29,7 @@ stages:
       cpu_request: 0.2
       memory_request: 200
       timeout: 30
+      secrets: ["aws", "unknown-secret"]
   serve:
     - step_name: "serve_model_1"
       path_to_executable: deploy/serve_1.py
