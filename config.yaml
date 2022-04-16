@@ -16,14 +16,12 @@ stages:
       cpu_request: 0.2
       memory_request: 200
       timeout: 30
-      secrets: ["aws"]
     - step_name: "model_3"
       path_to_executable: models/model_3.py
       dependency_path: models/requirements.txt
       cpu_request: 0.2
       memory_request: 200
       timeout: 30
-      secrets: ["aws"]
   compare: 
     - step_name: "best_model"
       path_to_executable: compare.py
@@ -31,7 +29,6 @@ stages:
       cpu_request: 0.2
       memory_request: 200
       timeout: 30
-      secrets: ["aws"]
   serve:
     - step_name: "serve_model_1"
       path_to_executable: deploy/serve_1.py
@@ -39,7 +36,6 @@ stages:
       command: ["gunicorn", "-b", "0.0.0.0:5000", "deploy.serve_1:app"]
       envs:
         foo: bar
-      secrets: ["aws"]
       timout: 30
       cpu_request: 0.2
       memory_request: 200
@@ -53,7 +49,6 @@ stages:
       command: ["gunicorn", "-b", "0.0.0.0:3000", "deploy.serve_2:app"]
       envs:
         foo: bar
-      secrets: ["aws"]
       timout: 30
       cpu_request: 0.2
       memory_request: 200
