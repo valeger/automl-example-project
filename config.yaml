@@ -34,6 +34,7 @@ stages:
       dependency_path: deploy/requirements.txt
       command: ["gunicorn", "-b", "0.0.0.0:5000", "deploy.serve_1:app"]
       timeout: 30
+      min_ready_seconds: 20
       cpu_request: 0.2
       memory_request: 200
       service:
@@ -45,6 +46,7 @@ stages:
       dependency_path: deploy/requirements.txt
       command: ["gunicorn", "-b", "0.0.0.0:3000", "deploy.serve_2:app"]
       timeout: 30
+      min_ready_seconds: 20
       cpu_request: 0.2
       memory_request: 200
       service:
