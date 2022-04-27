@@ -36,6 +36,7 @@ stages:
       envs:
         foo: bar
       timeout: 30
+      min_ready_seconds: 5
       cpu_request: 0.2
       memory_request: 200
       service:
@@ -49,6 +50,7 @@ stages:
       envs:
         foo: bar
       timeout: 30
+      min_ready_seconds: 5
       cpu_request: 0.2
       memory_request: 200
       service:
