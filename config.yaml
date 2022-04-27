@@ -35,7 +35,7 @@ stages:
       command: ["gunicorn", "-b", "0.0.0.0:5000", "deploy.serve_1:app"]
       envs:
         foo: bar
-      timout: 30
+      timeout: 30
       cpu_request: 0.2
       memory_request: 200
       service:
@@ -48,7 +48,7 @@ stages:
       command: ["gunicorn", "-b", "0.0.0.0:3000", "deploy.serve_2:app"]
       envs:
         foo: bar
-      timout: 30
+      timeout: 30
       cpu_request: 0.2
       memory_request: 200
       service:
